@@ -1,16 +1,22 @@
+import 'package:eduverse/home.dart';
 import 'package:eduverse/login.dart';
-import 'package:eduverse/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:eduverse/signup.dart';
 
 void main() {
-  runApp(Myapp());
-}
+  //  WidgetsFlutterBinding.ensureInitialized();
+  //    await Firebase.initializeApp(
+  //     // options: DefaultFirebaseoptions.currentplatform
+  //    );
+  
 
-class Myapp extends StatelessWidget {
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  runApp(
+    MaterialApp(
+      routes: {
+        "/": (context) => login(),
+        "/home":(context) => home(),
+      },
       debugShowCheckedModeBanner: false,
-      home: login(),
-    );
-  }
+    ),
+  );
 }

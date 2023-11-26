@@ -97,7 +97,7 @@ class _profileState extends State<profile> {
                                       ),
                                       Text("256",
                                           style:
-                                              TextStyle(fontSize: a * 0.045)),
+                                              TextStyle(fontSize: a * 0.045,color: Color(0xFFFF647D),fontWeight: FontWeight.w500)),
                                     ],
                                   ),
                                 ),
@@ -129,7 +129,7 @@ class _profileState extends State<profile> {
                                       ),
                                       Text("28",
                                           style:
-                                              TextStyle(fontSize: a * 0.045)),
+                                              TextStyle(fontSize: a * 0.045,color: Color.fromARGB(255, 75, 75, 254),fontWeight: FontWeight.w500)),
                                     ],
                                   ),
                                 ),
@@ -148,7 +148,7 @@ class _profileState extends State<profile> {
                       Text(
                         "Settings",
                         style: TextStyle(
-                            fontSize: b * 0.02,
+                            fontSize: a * 0.038,
                             color: Colors.grey,
                             fontWeight: FontWeight.w500),
                       ),
@@ -171,26 +171,30 @@ class _profileState extends State<profile> {
                             SizedBox(
                               width: a * 0.04,
                             ),
-                            SvgPicture.asset('images/reminder.svg'),
+                            SvgPicture.asset('images/reminder.svg',height: a * 0.07,),
                             SizedBox(
                               width: a * 0.04,
                             ),
                             Text(
                               "Reminders",
                               style: TextStyle(
-                                  fontSize: b * 0.025,
+                                  fontSize: a * 0.045,
                                   fontWeight: FontWeight.w500),
                             ),
                             SizedBox(
-                              width: a*0.25,
+                              width: a * 0.23,
                             ),
                             Container(
-                                child: CupertinoSwitch(
-                                  activeColor:Color(0xFFFF647D),
-                                    value: rem,
-                                    onChanged:(bool value) { 
-                                      setState(() { rem= value;
-                                       }); }, ),),
+                              child: CupertinoSwitch(
+                                activeColor: Color(0xFFFF647D),
+                                value: rem,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    rem = value;
+                                  });
+                                },
+                              ),
+                            ),
                           ],
                         ),
                       )
@@ -223,19 +227,23 @@ class _profileState extends State<profile> {
                             Text(
                               "Notifications",
                               style: TextStyle(
-                                  fontSize: b * 0.025,
+                                  fontSize: a * 0.045,
                                   fontWeight: FontWeight.w500),
                             ),
-                             SizedBox(
-                              width: a*0.19,
+                            SizedBox(
+                              width: a * 0.19,
                             ),
-                             Container(
-                                child: CupertinoSwitch(
-                                  activeColor:Color(0xFFFF647D),
-                                    value: not,
-                                    onChanged:(bool value) { 
-                                      setState(() { not= value;
-                                       }); }, ),),
+                            Container(
+                              child: CupertinoSwitch(
+                                activeColor: Color(0xFFFF647D),
+                                value: not,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    not = value;
+                                  });
+                                },
+                              ),
+                            ),
                           ],
                         ),
                       )
@@ -249,7 +257,7 @@ class _profileState extends State<profile> {
                       Text(
                         "Account",
                         style: TextStyle(
-                            fontSize: b * 0.02,
+                            fontSize: a * 0.038,
                             color: Colors.grey,
                             fontWeight: FontWeight.w500),
                       ),
@@ -267,34 +275,34 @@ class _profileState extends State<profile> {
                           color: Color.fromARGB(201, 255, 255, 255),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: a * 0.04,
-                            ),
-                            SvgPicture.asset(
-                              'images/notifications.svg',
-                              height: a * 0.07,
-                            ),
-                            SizedBox(
-                              width: a * 0.04,
-                            ),
-                            Text(
-                              "Change Name",
-                              style: TextStyle(
-                                  fontSize: b * 0.025,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            SizedBox(
-                              width: a * 0.04,
-                            ),
-                            InkWell( splashColor: Colors.blue,
-                              onTap: () {},
-                              child: Container( width: a*0.2,
-                              child: Image.asset("images/Vector (1).png")
+                        child: InkWell(
+                          splashColor: Colors.blue,
+                          onTap: () {},
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: a * 0.04,
                               ),
-                            )
-                          ],
+                              SvgPicture.asset(
+                                'images/name.svg',
+                                height: a * 0.07,
+                              ),
+                              SizedBox(
+                                width: a * 0.04,
+                              ),
+                              Text(
+                                "Change Name",
+                                style: TextStyle(
+                                    fontSize: a * 0.045,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              SizedBox(
+                                width: a * 0.26,
+                              ),
+                              Container(
+                                  child: Image.asset("images/Vector (1).png")),
+                            ],
+                          ),
                         ),
                       )
                     ],
@@ -311,25 +319,34 @@ class _profileState extends State<profile> {
                           color: Color.fromARGB(201, 255, 255, 255),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: a * 0.04,
-                            ),
-                            SvgPicture.asset(
-                              'images/notifications.svg',
-                              height: a * 0.07,
-                            ),
-                            SizedBox(
-                              width: a * 0.04,
-                            ),
-                            Text(
-                              "Change Password",
-                              style: TextStyle(
-                                  fontSize: b * 0.025,
-                                  fontWeight: FontWeight.w500),
-                            )
-                          ],
+                        child: InkWell(
+                          splashColor: Colors.blue,
+                          onTap: () {},
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: a * 0.04,
+                              ),
+                              SvgPicture.asset(
+                                'images/password.svg',
+                                height: a * 0.07,
+                              ),
+                              SizedBox(
+                                width: a * 0.04,
+                              ),
+                              Text(
+                                "Change Password",
+                                style: TextStyle(
+                                    fontSize: a * 0.045,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              SizedBox(
+                                width: a * 0.16,
+                              ),
+                              Container(
+                                  child: Image.asset("images/Vector (1).png")),
+                            ],
+                          ),
                         ),
                       )
                     ],
@@ -346,22 +363,31 @@ class _profileState extends State<profile> {
                           color: Color.fromARGB(201, 255, 255, 255),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: a * 0.04,
-                            ),
-                            SvgPicture.asset('images/reminder.svg'),
-                            SizedBox(
-                              width: a * 0.04,
-                            ),
-                            Text(
-                              "Change Profile Picture",
-                              style: TextStyle(
-                                  fontSize: b * 0.025,
-                                  fontWeight: FontWeight.w500),
-                            )
-                          ],
+                        child: InkWell(
+                          onTap: (){},
+                          splashColor: Colors.blue,
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: a * 0.04,
+                              ),
+                              SvgPicture.asset('images/profile.svg',height: a * 0.07,),
+                              SizedBox(
+                                width: a * 0.04,
+                              ),
+                              Text(
+                                "Change Profile Picture",
+                                style: TextStyle(
+                                    fontSize: a * 0.045,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              SizedBox(
+                                width: a * 0.048,
+                              ),
+                              Container(
+                                  child: Image.asset("images/Vector (1).png")),
+                            ],
+                          ),
                         ),
                       )
                     ],
@@ -374,7 +400,7 @@ class _profileState extends State<profile> {
                       Text(
                         "Up ToDo",
                         style: TextStyle(
-                            fontSize: b * 0.02,
+                            fontSize: a * 0.038,
                             color: Colors.grey,
                             fontWeight: FontWeight.w500),
                       ),
@@ -392,97 +418,119 @@ class _profileState extends State<profile> {
                           color: Color.fromARGB(201, 255, 255, 255),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: a * 0.04,
-                            ),
-                            SvgPicture.asset(
-                              'images/abouut.svg',
-                              height: a * 0.07,
-                            ),
-                            SizedBox(
-                              width: a * 0.04,
-                            ),
-                            Text(
-                              "About Us",
-                              style: TextStyle(
-                                  fontSize: b * 0.025,
-                                  fontWeight: FontWeight.w500),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: b * 0.02,
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        height: b * 0.08,
-                        width: a * 0.86,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(201, 255, 255, 255),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: a * 0.04,
-                            ),
-                            SvgPicture.asset(
-                              'images/FAQ.svg',
-                              height: a * 0.07,
-                            ),
-                            SizedBox(
-                              width: a * 0.04,
-                            ),
-                            Text(
-                              "FAQ",
-                              style: TextStyle(
-                                  fontSize: b * 0.025,
-                                  fontWeight: FontWeight.w500),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: b * 0.02,
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        height: b * 0.08,
-                        width: a * 0.86,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(201, 255, 255, 255),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: a * 0.04,
-                            ),
-                            SvgPicture.asset(
-                              'images/logout.svg',
-                              height: a * 0.07,
-                            ),
-                            SizedBox(
-                              width: a * 0.04,
-                            ),
-                            Text(
-                              "Logout",
-                              style: TextStyle(
-                                fontSize: b * 0.025,
-                                fontWeight: FontWeight.w500,
-                                color: const Color(0xFFFF647D),
+                        child: InkWell(
+                          onTap: (){},
+                          splashColor: Colors.blue,
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: a * 0.04,
                               ),
-                            )
-                          ],
+                              SvgPicture.asset(
+                                'images/abouut.svg',
+                                height: a * 0.07,
+                              ),
+                              SizedBox(
+                                width: a * 0.04,
+                              ),
+                              Text(
+                                "About Us",
+                                style: TextStyle(
+                                   fontSize: a * 0.045,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              SizedBox(
+                                width: a * 0.4,
+                              ),
+                              Container(
+                                  child: Image.asset("images/Vector (1).png")),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: b * 0.02,
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        height: b * 0.08,
+                        width: a * 0.86,
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(201, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: InkWell(
+                          onTap: (){},
+                          splashColor: Colors.blue,
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: a * 0.04,
+                              ),
+                              SvgPicture.asset(
+                                'images/FAQ.svg',
+                                height: a * 0.07,
+                              ),
+                              SizedBox(
+                                width: a * 0.04,
+                              ),
+                              Text(
+                                "FAQ",
+                                style: TextStyle(
+                                    fontSize: a * 0.045,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              SizedBox(
+                                width: a * 0.5,
+                              ),
+                              Container(
+                                  child: Image.asset("images/Vector (1).png")),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: b * 0.02,
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        height: b * 0.08,
+                        width: a * 0.86,
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(201, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: InkWell(
+                          onTap: (){},
+                          splashColor: Colors.blue,
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: a * 0.04,
+                              ),
+                              SvgPicture.asset(
+                                'images/logout.svg',
+                                height: a * 0.07,
+                              ),
+                              SizedBox(
+                                width: a * 0.04,
+                              ),
+                              Text(
+                                "Logout",
+                                style: TextStyle(
+                                 fontSize: a * 0.045,
+                                  fontWeight: FontWeight.w500,
+                                  color: const Color(0xFFFF647D),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       )
                     ],

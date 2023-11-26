@@ -24,8 +24,11 @@ class _navbarState extends State<navbar> {
 
   @override
   Widget build(BuildContext context) {
+    // var a = MediaQuery.of(context).size.width;
+    // var b = MediaQuery.of(context).size.height;
     return Scaffold(
       floatingActionButton: FloatingActionButton(onPressed: (){},
+      backgroundColor:Color(0xEEEF2355) ,
       child: Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -35,7 +38,7 @@ class _navbarState extends State<navbar> {
       ),
       backgroundColor: Color(0xFFE5E5E7),
       bottomNavigationBar: BottomNavigationBar(
-
+backgroundColor: Color.fromARGB(255, 255, 254, 254),
         type: BottomNavigationBarType.fixed,
           onTap: (index) {
             setState(() {
@@ -43,27 +46,41 @@ class _navbarState extends State<navbar> {
             }); 
           },
           currentIndex: myindex,
+          selectedItemColor: Color(0xFFFF647D),
+          unselectedItemColor: Colors.grey,
           items: [
+            BottomNavigationBarItem( label: "",
+              icon:  Padding(
+                padding: const EdgeInsets.only(top:8,bottom: 0),
+                child: Icon(Icons.home,size: 30),
+              ),  
+            ),
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                color: Colors.black,
+              icon: Padding(
+                padding: const EdgeInsets.only(top:8,bottom: 0),
+                child: Icon(Icons.calendar_month, size: 30),
               ),
-              label: "home",
+              label: "",
+            ),
+          
+            BottomNavigationBarItem(
+              icon: Padding(
+                padding: const EdgeInsets.only(top:8.0,bottom: 0),
+                child: Icon(Icons.shopping_cart,size: 30),
+              ),
+              label: "",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_month, color: Colors.black),
-              label: "calender",
+              icon: Padding(
+                padding: const EdgeInsets.only(top:8.0,bottom: 0),
+                child: Icon(Icons.person,size: 30,),
+                
+              ),
+              label: "",
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart, color: Colors.black),
-              label: "Add to cart",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person, color: Colors.black),
-              label: "Profile",
-            ),
-          ]),
+            
+          ]
+          ),
     );
   }
 }
