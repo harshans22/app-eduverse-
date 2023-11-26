@@ -1,10 +1,5 @@
-import 'package:eduverse/add.dart';
-import 'package:eduverse/categories.dart';
-import 'package:eduverse/notes.dart';
-import 'package:eduverse/profile.dart';
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 
 class home extends StatefulWidget {
   const home({super.key});
@@ -14,7 +9,6 @@ class home extends StatefulWidget {
 }
 
 class _homeState extends State<home> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -146,10 +140,9 @@ class _homeState extends State<home> {
                 ],
               ),
             ),
-            
           ],
         ),
       ),
-      );
+    );
   }
 }

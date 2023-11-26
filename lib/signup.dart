@@ -1,3 +1,29 @@
+// import 'package:eduverse/main.dart';
+// import 'package:flutter/material.dart';
+
+// class signup extends StatefulWidget {
+//   @override
+//   State<signup> createState() => _signupState();
+// }
+
+// class _signupState extends State<signup> {
+//   @override
+//   void initstate() {
+//     super.initState();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Container(
+//         color: Colors.blue,
+//         child: Center(
+//           child: Text("This is sign up page"),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 import 'package:eduverse/forgetpass.dart';
 import 'package:eduverse/login.dart';

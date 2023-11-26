@@ -1,5 +1,5 @@
 import 'package:eduverse/forgetpass.dart';
-import 'package:eduverse/homepage.dart';
+import 'package:eduverse/home.dart';
 import 'package:eduverse/signup.dart';
 import 'package:eduverse/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -194,7 +194,7 @@ class _loginState extends State<login> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => homepage(),
+                              builder: (context) => home(),
                             ));
                       },
                       child: Text(
