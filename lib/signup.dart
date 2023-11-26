@@ -1,284 +1,269 @@
-import 'dart:ffi';
+// import 'package:eduverse/main.dart';
+// import 'package:flutter/material.dart';
 
-import 'package:eduverse/navbar.dart';
+// class signup extends StatefulWidget {
+//   @override
+//   State<signup> createState() => _signupState();
+// }
+
+// class _signupState extends State<signup> {
+//   @override
+//   void initstate() {
+//     super.initState();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Container(
+//         color: Colors.blue,
+//         child: Center(
+//           child: Text("This is sign up page"),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+import 'package:eduverse/forgetpass.dart';
+import 'package:eduverse/login.dart';
+import 'package:eduverse/signup.dart';
+import 'package:eduverse/splash_screen.dart';
 import 'package:flutter/material.dart';
 
+final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-class signup extends StatefulWidget {
-  const signup({super.key});
-
-  @override
-  State<signup> createState() => signupState();
+String? _validpassword(value) {
+  if (value.isEmpty) {
+    return "Please enter password";
+  }
+  if (!(value.length < 16 && value.length > 6)) {
+    return "Password should be between 6-16 words";
+  }
 }
 
-class signupState extends State<signup> {
-  List<bool> isSelected = [false, true];
+TextEditingController nameController = TextEditingController();
+
+TextEditingController passController = TextEditingController();
+
+class signup extends StatefulWidget {
+  signup({super.key});
+
+  @override
+  State<signup> createState() => _signupState();
+}
+
+void _submitform() {
+  if (_formkey.currentState!.validate()) {
+    ScaffoldMessenger.of(_formkey.currentContext!).showSnackBar(
+        const SnackBar(content: Text("Form submit successfully")));
+  }
+}
+
+class _signupState extends State<signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            color: Color(0xFFE5E5E7),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                        height: 220,
-                        child: Image.asset(
-                          'images/group.png',
-                        )),
-                  ],
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+      body: SingleChildScrollView(
+        child: Center(
+          child: Form(
+            key: _formkey,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Image.asset(
+                    "assets/img.png",
+                    height: 220,
+                    width: 300,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 12.0, right: 12.0, top: 12.0, bottom: 5),
+                    child: Text(
+                      "Hello",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 7),
+                    child: Text(
+                      "Create your account",
+                      style:
+                          TextStyle(fontSize: 28, fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 110,
+                      ),
+                      Container(
+                        height: 38,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Color.fromARGB(255, 219, 214, 214),
+                        ),
+                        alignment: Alignment.center,
+                        child: Row(
+                          children: [
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => login(),
+                                      ));
+                                },
+                                child: Text(
+                                  "  Login",
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.black,
+                                  ),
+                                )),
+                            ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    primary: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20))),
+                                onPressed: () {},
+                                child: Text(
+                                  "Signup",
+                                  style: TextStyle(
+                                      fontSize: 14, color: Colors.black),
+                                )),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 22, top: 12, bottom: 5, right: 22),
+                    child: TextFormField(
+                      controller: nameController,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      decoration: InputDecoration(
+                          labelText: "Username",
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0))),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Please enter username";
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 22, top: 8, bottom: 4, right: 22),
+                    child: TextFormField(
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          labelText: "Email",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          )),
+                      validator: _validpassword,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 22, top: 8, bottom: 4, right: 22),
+                    child: TextFormField(
+                      controller: passController,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          labelText: "Password",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          )),
+                      validator: _validpassword,
+                    ),
+                  ),
+                  SizedBox(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.red,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12)),
+                          padding: EdgeInsets.only(
+                              right: 110, left: 110, top: 10, bottom: 10)),
+                      onPressed: () {
+                        if (_formkey.currentState!.validate()) {
+                          ScaffoldMessenger.of(_formkey.currentContext!)
+                              .showSnackBar(const SnackBar(
+                            content: Text(
+                              "Login successful",
+                              style: TextStyle(
+                                  backgroundColor:
+                                      Color.fromARGB(255, 244, 245, 247),
+                                  color: Color.fromARGB(255, 8, 145, 42)),
+                            ),
+                          ));
+                        }
+                      },
+                      child: Text(
+                        "Start Learning",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: Column(
                       children: [
-                        Text(
-                          "Hello",
-                          style: TextStyle(
-                            fontSize: MediaQuery.of(context).size.width * 0.055,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Create Your Account",
-                          style: TextStyle(
-                            fontSize: MediaQuery.of(context).size.width * 0.07,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Color.fromARGB(183, 247, 243, 243),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: ToggleButtons(
-                        borderRadius: BorderRadius.circular(20),
-                        constraints: BoxConstraints(
-                          minWidth: 80,
-                          maxWidth: 100,
-                          minHeight: 40,
-                          maxHeight: 40,
-                        ),
-                        isSelected: isSelected,
-                        fillColor: Color.fromARGB(137, 85, 84, 84),
-                        renderBorder: false,
-                        children: <Widget>[
-                          Text(
-                            "Login",
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 9, right: 9, top: 9, bottom: 5),
+                          child: Text(
+                            "or",
                             style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black,
-                            ),
+                                fontSize: 15, fontWeight: FontWeight.w500),
                           ),
-                          Text(
-                            "Signup",
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 5),
+                          child: Text(
+                            "continue with",
                             style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ],
-                        onPressed: (int index) {
-                          setState(
-                            () {
-                              for (int i = 0; i < isSelected.length; i++) {
-                                if (i == index) {
-                                  isSelected[i] = true;
-                                } else {
-                                  isSelected[i] = false;
-                                }
-                              }
-                            },
-                          );
-                        },
-                      ),
-                    )
-                  ],
-                ),
-                Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.only(left: 20, right: 20, top: 15),
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          hintText: "Enter your name",
-                          hintStyle: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 17,
-                              color: Color.fromARGB(156, 95, 92, 92)),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide.none,
-                          ),
-                          filled:
-                              true, // Set to true to enable filling the background
-                          fillColor: Color.fromARGB(183, 247, 243, 243),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 20, right: 20, top: 15),
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          hintText: "Enter your email",
-                          hintStyle: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 17,
-                              color: Color.fromARGB(156, 95, 92, 92)),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide.none,
-                          ),
-                          filled:
-                              true, // Set to true to enable filling the background
-                          fillColor: Color.fromARGB(183, 247, 243, 243),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 20, right: 20, top: 15),
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          hintText: "Password",
-                          hintStyle: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 17,
-                              color: Color.fromARGB(156, 95, 92, 92)),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide.none,
-                          ),
-                          filled:
-                              true, // Set to true to enable filling the background
-                          fillColor: Color.fromARGB(183, 247, 243, 243),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      width: 320,
-                      height: 50,
-                      child: ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Color.fromARGB(255, 249, 106, 104)),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0),
-                            ),
+                                fontSize: 15, fontWeight: FontWeight.w500),
                           ),
                         ),
-                        onPressed: () {
-                        
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => navbar()));
-                        },
-                        child: Text(
-                          "Start Learning",
-                          style: TextStyle(fontSize: 18),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "or",
-                          style: TextStyle(fontSize: 15),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Continue with",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 18),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Column(
-                      children: [
-                        GestureDetector(
-                          onTap: () {},
-                          child: Image.asset(
-                            "images/google.png",
-                            height: 50,
+                        Padding(
+                          padding: const EdgeInsets.only(left: 120.0),
+                          child: Row(
+                            children: [
+                              Image.asset(
+                                'assets/google.png',
+                                height: 28,
+                                width: 28,
+                              ),
+                              Image.asset(
+                                'assets/apple.png',
+                                height: 55,
+                                width: 55,
+                              ),
+                              Image.asset(
+                                'assets/fb.png',
+                                height: 32,
+                                width: 34,
+                              )
+                            ],
                           ),
                         )
                       ],
                     ),
-                    Column(
-                      children: [
-                        GestureDetector(
-                          onTap: () {},
-                          child: Image.asset(
-                            "images/apple.png",
-                            height: 50,
-                          ),
-                        )
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        GestureDetector(
-                          onTap: () {},
-                          child: Image.asset(
-                            "images/facebook.png",
-                            height: 50,
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
         ),
