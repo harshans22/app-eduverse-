@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:lite_rolling_switch/lite_rolling_switch.dart';
+
 
 class profile extends StatefulWidget {
   const profile({super.key});
@@ -182,7 +182,7 @@ class _profileState extends State<profile> {
                                   fontWeight: FontWeight.w500),
                             ),
                             SizedBox(
-                              width: a * 0.23,
+                              width: a * 0.28,
                             ),
                             Container(
                               child: CupertinoSwitch(
@@ -231,7 +231,7 @@ class _profileState extends State<profile> {
                                   fontWeight: FontWeight.w500),
                             ),
                             SizedBox(
-                              width: a * 0.19,
+                              width: a * 0.25,
                             ),
                             Container(
                               child: CupertinoSwitch(
@@ -297,7 +297,7 @@ class _profileState extends State<profile> {
                                     fontWeight: FontWeight.w500),
                               ),
                               SizedBox(
-                                width: a * 0.26,
+                                width: a * 0.3,
                               ),
                               Container(
                                   child: Image.asset("images/Vector (1).png")),
@@ -341,7 +341,7 @@ class _profileState extends State<profile> {
                                     fontWeight: FontWeight.w500),
                               ),
                               SizedBox(
-                                width: a * 0.16,
+                                width: a * 0.23,
                               ),
                               Container(
                                   child: Image.asset("images/Vector (1).png")),
@@ -382,7 +382,7 @@ class _profileState extends State<profile> {
                                     fontWeight: FontWeight.w500),
                               ),
                               SizedBox(
-                                width: a * 0.048,
+                                width: a * 0.15,
                               ),
                               Container(
                                   child: Image.asset("images/Vector (1).png")),
@@ -440,7 +440,7 @@ class _profileState extends State<profile> {
                                     fontWeight: FontWeight.w500),
                               ),
                               SizedBox(
-                                width: a * 0.4,
+                                width: a * 0.42,
                               ),
                               Container(
                                   child: Image.asset("images/Vector (1).png")),

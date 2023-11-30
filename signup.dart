@@ -55,6 +55,8 @@ class _signupState extends State<signup> {
                     children: [
                       
                       Container(
+                         width: a*0.2,
+                     height: b*0.3,
                         child: FittedBox(
                            fit: BoxFit.cover,
                           child: SvgPicture.asset(
@@ -242,7 +244,7 @@ class _signupState extends State<signup> {
                         },
                         child: Text(
                           "Start learning",
-                          style: TextStyle(fontSize: 18),
+                          style: TextStyle(fontSize: 18,color: Colors.white),
                         ),
                       ),
                     )
@@ -271,25 +273,21 @@ class _signupState extends State<signup> {
                              Row( 
                              mainAxisAlignment: MainAxisAlignment.center,
                                children: [
-                                 Row(
-                                    children: [
-                                      Image.asset(
-                                        'images/google.png',
-                                        height: b*0.05,
-                                      width: a*0.1,
-                                      ),
-                                      Image.asset(
-                                        'images/apple.png',
-                                         height: b*0.05,
-                                      width: a*0.1,
-                                      ),
-                                      Image.asset(
-                                        'images/facebook.png',
-                                         height: b*0.05,
-                                      width:  a*0.1,
-                                      )
-                                    ],
-                                  ),
+                                 Image.asset(
+                                   'images/google.png',
+                                   height: b*0.05,
+                                 width: a*0.2,
+                                 ),
+                                 Image.asset(
+                                   'images/apple.png',
+                                    height: b*0.05,
+                                 width: a*0.2,
+                                 ),
+                                 Image.asset(
+                                   'images/facebook.png',
+                                    height: b*0.05,
+                                 width:  a*0.2,
+                                 ),
                                ],
                              ),
                             
